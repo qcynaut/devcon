@@ -36,8 +36,8 @@ jobs:
       matrix:
         include:
           - image: rust
-            context: ./rust
-            dockerfile: ./rust/Dockerfile
+            context: rust
+            dockerfile: Dockerfile
           # - image: nextjs
           #   context: ./nextjs
           #   dockerfile: ./nextjs/Dockerfile
