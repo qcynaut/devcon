@@ -15,3 +15,6 @@ RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/i
 
 # Install johanson omf theme
 RUN fish -c "omf install johanson"
+
+# clean up directories
+RUN rm -rf /devcon
