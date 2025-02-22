@@ -8,5 +8,7 @@ RUN apt-get update && apt-get install -y \
 # make fish the default shell
 RUN chsh -s /usr/bin/fish $USER
 
-# install oh-my-fish
-RUN fish -c 'curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish'
+# Install oh-my-fish
+RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install.fish && \
+    fish install.fish --noninteractive && \
+    rm -f install.fish
