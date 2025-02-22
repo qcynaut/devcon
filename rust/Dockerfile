@@ -12,3 +12,6 @@ RUN chsh -s /usr/bin/fish $USER
 RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install.fish && \
     fish install.fish --noninteractive && \
     rm -f install.fish
+
+# Install johanson omf theme
+RUN fish -c "omf install johanson"
