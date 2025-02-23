@@ -38,9 +38,9 @@ jobs:
           - image: rust
             context: rust
             dockerfile: Dockerfile
-          # - image: nextjs
-          #   context: ./nextjs
-          #   dockerfile: ./nextjs/Dockerfile
+          - image: rust-py
+            context: ./rust-py
+            dockerfile: ./rust-py/Dockerfile
 
     steps:
       - name: Checkout repository
