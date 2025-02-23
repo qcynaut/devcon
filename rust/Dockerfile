@@ -1,5 +1,7 @@
 FROM rustlang/rust:nightly
 
+RUN rustup component add rustfmt clippy
+
 # install fish and oh-my-fish
 RUN apt-get update && apt-get install -y \
     fish \
