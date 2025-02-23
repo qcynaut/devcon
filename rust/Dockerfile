@@ -14,7 +14,7 @@ USER dev
 RUN rustup component add rustfmt clippy
 
 # install fish and oh-my-fish
-RUN apt-get update && apt-get install -y \
+RUN sudo -u dev apt-get update && apt-get install -y \
     fish \
     && rm -rf /var/lib/apt/lists/*
 
