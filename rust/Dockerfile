@@ -8,6 +8,8 @@ RUN groupadd --gid 1000 dev \
     && chmod 0440 /etc/sudoers.d/dev \
     && rm -rf /var/lib/apt/lists/*
 
+USER dev
+
 # install rustfmt and clippy
 RUN rustup component add rustfmt clippy
 
@@ -29,6 +31,3 @@ RUN fish -c "omf install johanson"
 
 # clean up directories
 RUN rm -rf /devcon
-
-WORKDIR /home/dev
-USER dev
