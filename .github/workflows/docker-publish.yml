@@ -40,7 +40,7 @@ jobs:
             dockerfile: Dockerfile
           - image: rust-py
             context: ./rust-py
-            dockerfile: ./rust-py/Dockerfile
+            dockerfile: Dockerfile
 
     steps:
       - name: Checkout repository
