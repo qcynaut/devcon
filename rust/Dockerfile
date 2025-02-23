@@ -8,21 +8,23 @@ RUN groupadd --gid 1000 dev \
     && chmod 0440 /etc/sudoers.d/dev \
     && rm -rf /var/lib/apt/lists/*
 
-USER dev
 
 # install rustfmt and clippy
 RUN rustup component add rustfmt clippy
 
 # install fish and oh-my-fish
-RUN sudo -u dev apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     fish \
     && rm -rf /var/lib/apt/lists/*
 
 # make fish the default shell
-RUN chsh -s /usr/bin/fish $USER
+RUN chsh -s /usr/bin/fish dev
+
+USER dev
 
 # Install oh-my-fish
-RUN curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install.fish && \
+RUN cd /home/dev && \
+    curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install.fish && \
     fish install.fish --noninteractive && \
     rm -f install.fish
 
@@ -31,3 +33,4 @@ RUN fish -c "omf install johanson"
 
 # clean up directories
 RUN rm -rf /devcon
+WORKDIR /home/dev
