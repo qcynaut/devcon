@@ -22,7 +22,7 @@ RUN cd /tmp \
     && wget https://www.python.org/ftp/python/3.13.2/Python-3.13.2.tgz \
     && tar xzf Python-3.13.2.tgz \
     && cd Python-3.13.2 \
-    && ./configure --enable-optimizations \
+    && ./configure --enable-optimizations --enable-shared \
     && make -j$(nproc) \
     && make install \
     && cd .. \
